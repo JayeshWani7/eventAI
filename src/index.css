@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --shadow-color: 0deg 0% 70%;
+  --shadow-elevation-low: 0.6px 0.6px 1px hsl(var(--shadow-color) / 0.34),
+    1px 1px 1.7px -1.2px hsl(var(--shadow-color) / 0.34),
+    2.4px 2.4px 4px -2.5px hsl(var(--shadow-color) / 0.34);
+  --shadow-elevation-medium: 0.6px 0.6px 1px hsl(var(--shadow-color) / 0.36),
+    2.1px 2.1px 3.5px -0.8px hsl(var(--shadow-color) / 0.36),
+    5.1px 5.1px 8.5px -1.7px hsl(var(--shadow-color) / 0.36),
+    12.5px 12.5px 20.9px -2.5px hsl(var(--shadow-color) / 0.36);
+}
+
+@layer components {
+  .neo-card {
+    @apply bg-gray-100 rounded-xl p-6;
+    box-shadow: var(--shadow-elevation-medium),
+                inset -2px -2px 5px rgba(255, 255, 255, 0.7),
+                inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .neo-button {
+    @apply px-6 py-2 rounded-lg bg-gray-100 text-gray-700 font-medium transition-all duration-200;
+    box-shadow: var(--shadow-elevation-low);
+  }
+  
+  .neo-button:hover {
+    @apply transform -translate-y-0.5;
+    box-shadow: var(--shadow-elevation-medium);
+  }
+  
+  .neo-button:active {
+    @apply transform translate-y-0.5;
+    box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 0.7),
+                inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .neo-input {
+    @apply bg-gray-100 rounded-lg px-4 py-2 w-full outline-none;
+    box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 0.7),
+                inset 2px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+}
